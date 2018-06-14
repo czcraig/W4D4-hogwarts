@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( './models/students.rb' )
+require_relative( './models/houses.rb' )
 also_reload( './models/*' )
 
 # HOMEPAGE
@@ -12,6 +13,7 @@ end
 
 # new
 get '/students/new' do
+  @houses = House.all()
   erb( :new )
 end
 
