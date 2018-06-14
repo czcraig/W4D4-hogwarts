@@ -34,4 +34,24 @@ class Student
     return "#{@first_name} #{@last_name}"
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM students;"
+    SqlRunner.run(sql)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM students"
+    students = SqlRunner.run( sql )
+    result = students.map { |student| Student.new( student ) }
+    return result
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM students WHERE id = $1"
+    values = [id]
+    student = SqlRunner.run( sql, values )
+    result = Student.new( student.first )
+    return result
+  end
+
 end
