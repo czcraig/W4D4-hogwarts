@@ -29,4 +29,9 @@ class TestStudent < MiniTest::Test
     assert_equal(17, result)
   end
 
+  def test_full_name()
+    result = @student.full_name()
+    assert_equal("Harry Potter", result)
+  end
+
 end

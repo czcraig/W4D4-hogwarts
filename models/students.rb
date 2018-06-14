@@ -30,4 +30,8 @@ class Student
     @id = student_data.first()['id'].to_i
   end
 
+  def full_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
 end
